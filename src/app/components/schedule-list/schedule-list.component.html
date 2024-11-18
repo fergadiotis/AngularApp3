@@ -1,0 +1,15 @@
+<div class="schedule-list">
+    <h2>Schedules</h2>
+    <div class="schedule-item" *ngFor="let schedule of schedules">
+        <div class="schedule-header">
+            <h3>{{schedule.title}}</h3>
+            <button class="delete-btn" (click)="deleteSchedule(schedule.id)">×</button>
+        </div>
+        <p class="schedule-date">Date: {{schedule.date | date:'mediumDate'}}</p>
+        <p class="schedule-time">Time: {{schedule.startTime}} - {{schedule.endTime}}</p>
+        <p class="schedule-description" *ngIf="schedule.description">{{schedule.description}}</p>
+    </div>
+    <div class="no-schedules" *ngIf="schedules.length === 0">
+        No schedules yet. Add one above!
+    </div>
+</div>
